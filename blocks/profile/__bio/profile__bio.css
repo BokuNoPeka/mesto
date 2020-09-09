@@ -1,0 +1,11 @@
+.profile__bio {
+    box-sizing: border-box;
+    margin-left: 30px;
+    align-self: center;
+}
+
+@media screen and (max-width: 720px) {
+    .profile__bio {
+        margin-left: 0;
+    }
+}

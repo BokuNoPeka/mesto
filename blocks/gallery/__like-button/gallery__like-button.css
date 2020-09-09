@@ -1,0 +1,7 @@
+.gallery__like-button {
+    position: absolute;
+    width: 20px;
+    height: 18px;
+    bottom: 30px;
+    left: 250px;
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Автор: Колдунов Артём, Проектная работа: Место">
+    <link rel="stylesheet" href="./pages/index.css">
+    <title>Mesto</title>
+</head>
+
+<body class="page">
+    <header class="header">
+        <img class="header__logo" src="./images/Header-logo.svg" alt="Mesto russia">
+    </header>
+    <main>
+        <section class="profile">
+            <div class="profile__info">
+                <img class="profile__avatar" src="./images/Jack-ivan-Kusto.jpg" alt="Жак кусто во всей красе">
+                <div class="profile__container-info">
+                    <div class="profile__bio">
+                        <h1 class="profile__name">Жак-Ив Кусто</h1>
+                        <p class="profile__status">Исследователь океана</p>
+                    </div>
+                    <button class="profile__edit-button"></button>
+                </div>
+            </div>
+            <button class="profile__add-button"></button>
+        </section>
+        <section class="gallery">
+            <ul class="gallery__cards">
+                <li class="gallery__card">
+                    <figure class="gallery__figure">
+                        <img class="gallery__image" src="./images/gallery-1.jpg">
+                        <figurecaption class="gallery__card-name">
+                            Челябинская область
+                        </figurecaption>
+                    </figure>
+                    <img class="gallery__like-button" src="./images/like-button.svg">
+                </li>
+                <li class="gallery__card">
+                    <figure class="gallery__figure">
+                        <img class="gallery__image" src="./images/gallery-2.jpg">
+                        <figurecaption class="gallery__card-name">
+                            Волгоград
+                        </figurecaption>
+                    </figure>
+                    <img class="gallery__like-button" src="./images/like-button.svg">
+                </li>
+                <li class="gallery__card">
+                    <figure class="gallery__figure">
+                        <img class="gallery__image" src="./images/gallery-3.jpg">
+                        <figurecaption class="gallery__card-name">
+                            Кострома
+                        </figurecaption>
+                    </figure>
+                    <img class="gallery__like-button" src="./images/like-button.svg">
+                </li>
+                <li class="gallery__card">
+                    <figure class="gallery__figure">
+                        <img class="gallery__image" src="./images/gallery-4.jpg">
+                        <figurecaption class="gallery__card-name">
+                            Рязань
+                        </figurecaption>
+                    </figure>
+                    <img class="gallery__like-button" src="./images/like-button.svg">
+                </li>
+                <li class="gallery__card">
+                    <figure class="gallery__figure">
+                        <img class="gallery__image" src="./images/gallery-5.jpg">
+                        <figurecaption class="gallery__card-name">
+                            Астрахань
+                        </figurecaption>
+                    </figure>
+                    <img class="gallery__like-button" src="./images/like-button.svg">
+                </li>
+                <li class="gallery__card">
+                    <figure class="gallery__figure">
+                        <img class="gallery__image" src="./images/gallery-6.jpg">
+                        <figurecaption class="gallery__card-name">
+                            Торжок
+                        </figurecaption>
+                    </figure>
+                    <img class="gallery__like-button" src="./images/like-button.svg">
+                </li>
+            </ul>
+        </section>
+    </main>
+    <footer class="footer">
+        <p class="footer__copyright">
+            &copy; 2020 Mesto Russia
+        </p>
+    </footer>
+    <section class="popup">
+        <form class="popup__form">
+            <button class=" popup__button-close"></button>
+            <p class="popup__text">Редактировать профиль</p>
+            <input class="js-popup__name popup__input">
+            <input class="js-popup__status popup__input">
+            <button class=" popup__button-save">Сохранить</button>
+        </form>
+    </section>
+    <script src="./scripts/sctipts.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+.gallery__card {
+    position: relative;
+    max-width: 282px;
+    height: 360px;
+    overflow: hidden;
+    border-radius: 10px
+}
