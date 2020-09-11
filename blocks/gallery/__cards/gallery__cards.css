@@ -16,7 +16,7 @@
 
 @media screen and (min-width: 321px) and (max-width: 580px) {
     .gallery__cards {
-        max-width: 320px;
+        max-width: 282px;
         margin: 0 auto;
     }
 }

@@ -5,8 +5,8 @@ const popupSaveEditButton = document.querySelector('.popup__button-save')
 const formElementEdit = document.querySelector('.popup__form');
 const nameProfile = document.querySelector('.profile__name');
 const statusProfile = document.querySelector('.profile__status');
-const nameInput = document.querySelector('.js-popup__name');
-const statusInput = document.querySelector('.js-popup__status');
+const nameInput = document.getElementsByName('name-input')[0];
+const statusInput = document.getElementsByName('status-input')[0];
 
 function openPopupEdit() {
     nameInput.value = nameProfile.textContent;
@@ -18,14 +18,13 @@ function savePopupEdit(evt) {
     evt.preventDefault();
     nameProfile.textContent = nameInput.value;
     statusProfile.textContent = statusInput.value;
-    popup.classList.remove('popup_is-opened');
+    closePopupEdit(evt);
 }
 
 function closePopupEdit(evt) {
-    evt.preventDefault();
     popup.classList.remove('popup_is-opened');
 }
 
 popupOpenEditButton.addEventListener('click', openPopupEdit);
-popupSaveEditButton.addEventListener('click', savePopupEdit);
+formElementEdit.addEventListener('submit', savePopupEdit);
 popupCloseEditButton.addEventListener('click', closePopupEdit);

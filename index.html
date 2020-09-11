@@ -30,70 +30,70 @@
         <section class="gallery">
             <ul class="gallery__cards">
                 <li class="gallery__card">
-                    <figure class="gallery__figure">
+                    <div class="gallery__figure">
                         <img class="gallery__image" src="./images/gallery-1.jpg" alt="Челябинская набережная">
                         <div class="gallery__container">
-                            <figurecaption class="gallery__card-name">
+                            <h2 class="gallery__card-name">
                                 Челябинская Область
-                            </figurecaption>
+                            </h2>
                             <button class="gallery__like-button"></button>
                         </div>
-                    </figure>
+                    </div>
                 </li>
                 <li class="gallery__card">
-                    <figure class="gallery__figure">
+                    <div class="gallery__figure">
                         <img class="gallery__image" src="./images/gallery-2.jpg" alt="Солнечное Волгоградское побережье">
                         <div class="gallery__container">
-                            <figurecaption class="gallery__card-name">
+                            <h2 class="gallery__card-name">
                                 Волгоград
-                            </figurecaption>
+                            </h2>
                             <button class="gallery__like-button"></button>
                         </div>
-                    </figure>
+                    </div>
                 </li>
                 <li class="gallery__card">
-                    <figure class="gallery__figure">
+                    <div class="gallery__figure">
                         <img class="gallery__image" src="./images/gallery-3.jpg" alt="Горные хребты Костромы">
                         <div class="gallery__container">
-                            <figurecaption class="gallery__card-name">
+                            <h2 class="gallery__card-name">
                                 Кострома
-                            </figurecaption>
+                            </h2>
                             <button class="gallery__like-button"></button>
                         </div>
-                    </figure>
+                    </div>
                 </li>
                 <li class="gallery__card">
-                    <figure class="gallery__figure">
+                    <div class="gallery__figure">
                         <img class="gallery__image" src="./images/gallery-4.jpg" alt="Рязанские монументы">
                         <div class="gallery__container">
-                            <figurecaption class="gallery__card-name">
+                            <h2 class="gallery__card-name">
                                 Рязань
-                            </figurecaption>
+                            </h2>
                             <button class="gallery__like-button"></button>
                         </div>
-                    </figure>
+                    </div>
                 </li>
                 <li class="gallery__card">
-                    <figure class="gallery__figure">
+                    <div class="gallery__figure">
                         <img class="gallery__image" src="./images/gallery-5.jpg" alt="Береговая линия Астрахани">
                         <div class="gallery__container">
-                            <figurecaption class="gallery__card-name">
+                            <h2 class="gallery__card-name">
                                 Астрахань
-                            </figurecaption>
+                            </h2>
                             <button class="gallery__like-button"></button>
                         </div>
-                    </figure>
+                    </div>
                 </li>
                 <li class="gallery__card">
-                    <figure class="gallery__figure">
+                    <div class="gallery__figure">
                         <img class="gallery__image" src="./images/gallery-6.jpg" alt="Закаты на пляже в Торжке">
                         <div class="gallery__container">
-                            <figurecaption class="gallery__card-name">
+                            <h2 class="gallery__card-name">
                                 Торжок
-                            </figurecaption>
+                            </h2>
                             <button class="gallery__like-button"></button>
                         </div>
-                    </figure>
+                    </div>
                 </li>
             </ul>
         </section>
@@ -104,12 +104,12 @@
         </p>
     </footer>
     <section class="popup">
-        <form class="popup__form">
-            <button class=" popup__button-close"></button>
+        <form class="popup__form" name="edit-form">
+            <button class=" popup__button-close" type="reset"></button>
             <h3 class="popup__text">Редактировать профиль</h3>
-            <input class="js-popup__name popup__input">
-            <input class="js-popup__status popup__input">
-            <button class=" popup__button-save">Сохранить</button>
+            <input type="text" name="name-input" class=" popup__input">
+            <input type="text" name="status-input" class=" popup__input">
+            <button class=" popup__button-save" type="submit">Сохранить</button>
         </form>
     </section>
     <script src="./scripts/sctipts.js" defer></script>
