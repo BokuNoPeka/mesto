@@ -1,7 +1,14 @@
 .gallery__like-button {
-    position: absolute;
-    width: 20px;
-    height: 18px;
-    bottom: 30px;
-    left: 250px;
+    width: 21px;
+    height: 19px;
+    box-sizing: border-box;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    background-color: white;
+    background-image: url(../../../images/like-button.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 2px;
+    transition: opacity .3s ease;
 }
