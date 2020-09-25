@@ -107,11 +107,33 @@
         <form class="popup__form" name="edit-form">
             <button class=" popup__button-close" type="reset"></button>
             <h3 class="popup__text">Редактировать профиль</h3>
-            <input type="text" name="name-input" class=" popup__input">
+            <input type="text" name="name-input" class=" popup__input" placeholder="">
             <input type="text" name="status-input" class=" popup__input">
             <button class=" popup__button-save" type="submit">Сохранить</button>
         </form>
     </section>
+    <section class="popup popup_add" style="display: flex;">
+        <form class="popup__form" name="add-form">
+            <button class=" popup__button-close" type="reset"></button>
+            <h3 class="popup__text">Новое место</h3>
+            <input type="text" name="mesto-input" class=" popup__input" placeholder="Название">
+            <input type="text" name="url-input" class=" popup__input" placeholder="Ссылка на картинку">
+            <button class=" popup__button-add" type="submit">Создать</button>
+        </form>
+    </section>
+    <template class="template-gallery">
+        <li class="gallery__card">
+            <div class="gallery__figure">
+                <img class="gallery__image" src="" alt="">
+                <div class="gallery__container">
+                    <h2 class="gallery__card-name">
+                    
+                    </h2>
+                    <button class="gallery__like-button" type="button"></button>
+                </div>
+            </div>
+        </li>
+    </template>
     <script src="./scripts/sctipts.js" defer></script>
 </body>
 
