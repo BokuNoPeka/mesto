@@ -1,0 +1,7 @@
+@media screen and (max-width: 440px) {
+    .popup__text_edit {
+        font-size: 18px;
+        line-height: 22px;
+        max-width: 238px;
+    }
+}

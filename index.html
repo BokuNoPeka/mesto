@@ -103,21 +103,21 @@
             &copy; 2020 Mesto Russia
         </p>
     </footer>
-    <section class="popup">
-        <form class="popup__form" name="edit-form">
-            <button class=" popup__button-close" type="reset"></button>
-            <h3 class="popup__text">Редактировать профиль</h3>
-            <input type="text" name="name-input" class=" popup__input" placeholder="">
-            <input type="text" name="status-input" class=" popup__input">
+    <section class="popup popup_edit">
+        <form class="popup__form popup__form_edit" name="edit-form">
+            <button class=" popup__button-close popup__button-close_edit" type="reset"></button>
+            <h3 class="popup__text popup__text_edit">Редактировать профиль</h3>
+            <input type="text" name="name-input" class=" popup__input popup__input_edit">
+            <input type="text" name="status-input" class=" popup__input popup__input_edit">
             <button class=" popup__button-save" type="submit">Сохранить</button>
         </form>
     </section>
-    <section class="popup popup_add" style="display: flex;">
-        <form class="popup__form" name="add-form">
-            <button class=" popup__button-close" type="reset"></button>
-            <h3 class="popup__text">Новое место</h3>
-            <input type="text" name="mesto-input" class=" popup__input" placeholder="Название">
-            <input type="text" name="url-input" class=" popup__input" placeholder="Ссылка на картинку">
+    <section class="popup popup_add">
+        <form class="popup__form popup__form_add" name="add-form">
+            <button class=" popup__button-close popup__button-close_add" type="reset"></button>
+            <h3 class="popup__text popup__text_add">Новое место</h3>
+            <input type="text" name="mesto-input" class=" popup__input popup__input_add" placeholder="Название">
+            <input type="text" name="url-input" class=" popup__input popup__input_add" placeholder="Ссылка на картинку">
             <button class=" popup__button-add" type="submit">Создать</button>
         </form>
     </section>
