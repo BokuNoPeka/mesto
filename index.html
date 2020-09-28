@@ -32,6 +32,7 @@
                 <template class="template-gallery">
                     <li class="gallery__card">
                         <div class="gallery__figure">
+                            <button class="gallery__trashcan-button"></button>
                             <img class="gallery__image" src="" alt="">
                             <div class="gallery__container">
                                 <h2 class="gallery__card-name">
@@ -42,6 +43,18 @@
                         </div>
                     </li>
                 </template>
+                <li class="gallery__card">
+                    <div class="gallery__figure">
+                        <button class="gallery__trashcan-button"></button>
+                        <img class="gallery__image" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg" alt="">
+                        <div class="gallery__container">
+                            <h2 class="gallery__card-name">
+                                sasasasas
+                            </h2>
+                            <button class="gallery__like-button" type="button"></button>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </section>
     </main>
@@ -50,6 +63,13 @@
             &copy; 2020 Mesto Russia
         </p>
     </footer>
+    <section class="popup popup_full-size">
+        <figure class="popup__figure">
+            <img class="popup__image" src="" alt="">
+            <button class="popup__button-close popup__button-close_add"></button>
+            <figurecaption class="popup__figurecaption"></figurecaption>
+        </figure>
+    </section>
     <section class="popup popup_edit">
         <form class="popup__form popup__form_edit" name="edit-form">
             <button class=" popup__button-close popup__button-close_edit" type="reset"></button>

@@ -48,15 +48,20 @@ function savePopupEdit() {
     statusProfile.textContent = statusInput.value;
     closePopup(popupEdit);
 }
+
 popupOpenEditButton.addEventListener('click', () => {
     openPopupEdit(popupEdit)
 });
+
 formElementEdit.addEventListener('submit', () => {
     savePopupEdit()
 });
+
 popupCloseEditButton.addEventListener('click', () => {
     closePopup(popupEdit)
 });
+
+
 /*=================PopupAdd=====================*/
 const popupAdd = document.querySelector(".popup_add");
 const popupOpenAddButton = document.querySelector('.profile__add-button');
@@ -70,13 +75,15 @@ function openPopupAdd() {
     openPopup(popupAdd)
 }
 
-
 popupCloseAddButton.addEventListener('click', () => {
     closePopup(popupAdd)
 });
+
 popupOpenAddButton.addEventListener('click', () => {
     openPopupAdd()
 });
+
+
 /*==============================CommonFunctions===========================*/
 function openPopup(popup) {
     popup.classList.add('popup_is-opened');
