@@ -7,6 +7,38 @@ const profileStatus = document.querySelector('.profile__status');
 const nameInput = document.getElementsByName('name-input')[0];
 const statusInput = document.getElementsByName('status-input')[0];
 const cardsContainer = document.querySelector('.gallery__cards');
+const AddForm = document.querySelector('.popup_add');
+const openAddFormButton = document.querySelector('.profile__add-button');
+const closeAddFormButton = AddForm.querySelector('.popup__button-close_add');
+const galleryElement = document.querySelector('.template-gallery').content;
+const mestoInput = document.getElementsByName('mesto-input')[0];
+const urlInput = document.getElementsByName('url-input')[0];
+const initialCards = [{
+        name: 'Архыз',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+    },
+    {
+        name: 'Челябинская область',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    },
+    {
+        name: 'Иваново',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    },
+    {
+        name: 'Камчатка',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    },
+    {
+        name: 'Холмогорский район',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+    },
+    {
+        name: 'Байкал',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+    }
+];
+
 
 /*=================PopupEdit=====================*/
 function openEditForm() {
@@ -36,14 +68,6 @@ closeEditFormButton.addEventListener('click', () => {
 
 
 /*=================PopupAdd=====================*/
-const AddForm = document.querySelector('.popup_add');
-const openAddFormButton = document.querySelector('.profile__add-button');
-const closeAddFormButton = AddForm.querySelector('.popup__button-close_add');
-const galleryElement = document.querySelector('.template-gallery').content;
-const mestoInput = document.getElementsByName('mesto-input')[0];
-const urlInput = document.getElementsByName('url-input')[0];
-
-
 function openAddForm() {
     mestoInput.value = '';
     urlInput.value = '';
@@ -98,6 +122,14 @@ AddForm.addEventListener('submit', (event) => {
     event.preventDefault();
     submitAddForm(mestoInput.value, urlInput.value);
 });
+
+function renderCards() {
+    initialCards.forEach(item => {
+        submitAddForm(item.name, item.link);
+    })
+
+};
+renderCards();
 
 /*==============================CommonFunctions===========================*/
 function openPopup(popup) {
