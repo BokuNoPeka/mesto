@@ -13,6 +13,11 @@ const closeAddFormButton = AddForm.querySelector('.popup__button-close_add');
 const galleryElement = document.querySelector('.template-gallery').content;
 const mestoInput = document.getElementsByName('mesto-input')[0];
 const urlInput = document.getElementsByName('url-input')[0];
+const fullSizeImage = document.querySelector('.popup_full-size');
+const imageName = fullSizeImage.querySelector('.popup__figurecaption');
+const imageSource = fullSizeImage.querySelector('.popup__image');
+const closeFullSizeButton = fullSizeImage.querySelector('.popup__button-close_full-size');
+
 const initialCards = [{
         name: 'Архыз',
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -96,7 +101,12 @@ function createCard(name, link) {
 
     trashCan.addEventListener('click', () => {
         element.remove();
-    })
+    });
+
+    image.addEventListener('click', () => {
+        showFullSize(name, link);
+    });
+
 
     title.textContent = name;
     image.src = link;
@@ -130,6 +140,17 @@ function renderCards() {
 
 };
 renderCards();
+/*=================FullSize=====================*/
+function showFullSize(name, link) {
+    openPopup(fullSizeImage);
+    imageName.textContent = name;
+    imageSource.src = link;
+    imageSource.alt = name;
+}
+closeFullSizeButton.addEventListener('click', () => {
+    closePopup(fullSizeImage);
+});
+
 
 /*==============================CommonFunctions===========================*/
 function openPopup(popup) {

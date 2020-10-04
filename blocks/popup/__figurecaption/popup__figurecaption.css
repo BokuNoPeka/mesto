@@ -1,4 +1,8 @@
-.popup__figcaption {
+.popup__figurecaption {
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
     font-size: 12px;
-    line-height: 1.25;
+    line-height: 15px;
+    color: #FFFFFF;
 }

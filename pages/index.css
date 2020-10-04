@@ -29,6 +29,7 @@
 @import url(../blocks/popup/__button-close/popup__button-close.css);
 @import url(../blocks/popup/__button-close/_add.css/popup__button-close_add.css);
 @import url(../blocks/popup/__button-close/_edit.css/popup__button-close_edit.css);
+@import url(../blocks/popup/__button-close/_full-size/popup__button-close_full-size.css);
 @import url(../blocks/popup/__button-save/popup__button-save.css);
 @import url(../blocks/popup/__form/popup__form.css);
 @import url(../blocks/popup/__form/_add/popup__form_add.css);
