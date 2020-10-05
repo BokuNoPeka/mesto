@@ -49,8 +49,8 @@
         <form class="popup__form popup__form_edit" name="edit-form">
             <button class=" popup__button-close popup__button-close_edit" type="reset"></button>
             <h3 class="popup__text popup__text_edit">Редактировать профиль</h3>
-            <input type="text" name="name-input" class=" popup__input popup__input_edit">
-            <input type="text" name="status-input" class=" popup__input popup__input_edit">
+            <input type="text" required name="name-input" class=" popup__input popup__input_edit popup__input_edit_name">
+            <input type="text" required name="status-input" class=" popup__input popup__input_edit popup__input_edit_status">
             <button class=" popup__button-save" type="submit">Сохранить</button>
         </form>
     </section>
@@ -58,8 +58,8 @@
         <form class="popup__form popup__form_add" name="add-form">
             <button class=" popup__button-close popup__button-close_add" type="reset"></button>
             <h3 class="popup__text popup__text_add">Новое место</h3>
-            <input type="text" name="mesto-input" class=" popup__input popup__input_add" placeholder="Название">
-            <input type="text" name="url-input" class=" popup__input popup__input_add" placeholder="Ссылка на картинку">
+            <input type="text" required name="mesto-input" class=" popup__input popup__input_add popup__input_add_name" placeholder="Название">
+            <input type="url" required name="url-input" class=" popup__input popup__input_add popup__input_add_source" placeholder="Ссылка на картинку">
             <button class="popup__button-add" type="submit">Создать</button>
         </form>
         <template class="template-gallery">
@@ -77,6 +77,8 @@
             </li>
         </template>
     </section>
+    <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/initialCards.js" defer></script>
     <script src="./scripts/sctipts.js" defer></script>
 </body>
 
