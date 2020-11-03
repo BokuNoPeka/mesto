@@ -1,84 +1,129 @@
 <!DOCTYPE html>
 <html lang="ru">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Description" content="Автор: Колдунов Артём, Проектная работа: Место">
-    <link rel="stylesheet" href="./pages/index.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="Description"
+      content="Автор: Колдунов Артём, Проектная работа: Место"
+    />
+    <link rel="stylesheet" href="./pages/index.css" />
     <title>Mesto</title>
-</head>
+  </head>
 
-<body class="page">
+  <body class="page">
     <header class="header">
-        <img class="header__logo" src="./images/Header-logo.svg" alt="Mesto russia">
+      <img
+        class="header__logo"
+        src="./images/Header-logo.svg"
+        alt="Mesto russia"
+      />
     </header>
     <main>
-        <section class="profile">
-            <div class="profile__info">
-                <img class="profile__avatar" src="./images/Jack-ivan-Kusto.jpg" alt="Жак кусто во всей красе">
-                <div class="profile__container-info">
-                    <div class="profile__bio">
-                        <h1 class="profile__name">Жак-Ив Кусто</h1>
-                        <p class="profile__status">Исследователь океана</p>
-                    </div>
-                    <button class="profile__edit-button" type="button"></button>
-                </div>
+      <section class="profile">
+        <div class="profile__info">
+          <img
+            class="profile__avatar"
+            src="./images/Jack-ivan-Kusto.jpg"
+            alt="Жак кусто во всей красе"
+          />
+          <div class="profile__container-info">
+            <div class="profile__bio">
+              <h1 class="profile__name">Жак-Ив Кусто</h1>
+              <p class="profile__status">Исследователь океана</p>
             </div>
-            <button class="profile__add-button" type="button"></button>
-        </section>
-        <section class="gallery">
-            <ul class="gallery__cards">
-
-            </ul>
-        </section>
+            <button class="profile__edit-button" type="button"></button>
+          </div>
+        </div>
+        <button class="profile__add-button" type="button"></button>
+      </section>
+      <section class="gallery">
+        <ul class="gallery__cards"></ul>
+      </section>
     </main>
     <footer class="footer">
-        <p class="footer__copyright">
-            &copy; 2020 Mesto Russia
-        </p>
+      <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
     <section class="popup popup_full-size">
-        <figure class="popup__figure">
-            <img class="popup__image" src="#" alt="#">
-            <button class="popup__button-close popup__button-close_full-size"></button>
-            <figcaption class="popup__figurecaption"></figcaption>
-        </figure>
+      <figure class="popup__figure">
+        <img class="popup__image" src="#" alt="#" />
+        <button
+          class="popup__button-close popup__button-close_full-size"
+        ></button>
+        <figcaption class="popup__figurecaption"></figcaption>
+      </figure>
     </section>
     <section class="popup popup_edit">
-        <form class="popup__form popup__form_edit" name="edit-form">
-            <button class=" popup__button-close popup__button-close_edit" type="reset"></button>
-            <h3 class="popup__text popup__text_edit">Редактировать профиль</h3>
-            <input type="text" required name="name-input" class=" popup__input popup__input_edit popup__input_edit_name">
-            <input type="text" required name="status-input" class=" popup__input popup__input_edit popup__input_edit_status">
-            <button class=" popup__button-save" type="submit">Сохранить</button>
-        </form>
+      <form class="popup__form popup__form_edit" name="edit-form" novalidate>
+        <button
+          class="popup__button-close popup__button-close_edit"
+          type="reset"
+        ></button>
+        <h3 class="popup__text popup__text_edit">Редактировать профиль</h3>
+        <input
+          type="text"
+          required
+          name="name-input"
+          class="popup__input popup__input_edit popup__input_edit_name"
+          placeholder="Имя"
+          minlength='2';
+          maxlength='40';
+        />
+        <span></span>
+        <input
+          type="text"
+          required
+          name="status-input"
+          class="popup__input popup__input_edit popup__input_edit_status"
+          placeholder="О себе"
+          minlength='2';
+          maxlength='200';
+        />
+        <span></span>
+        <button class="popup__button-save" type="submit">Сохранить</button>
+      </form>
     </section>
     <section class="popup popup_add">
-        <form class="popup__form popup__form_add" name="add-form">
-            <button class=" popup__button-close popup__button-close_add" type="reset"></button>
-            <h3 class="popup__text popup__text_add">Новое место</h3>
-            <input type="text" required name="mesto-input" class=" popup__input popup__input_add popup__input_add_name" placeholder="Название">
-            <input type="url" required name="url-input" class=" popup__input popup__input_add popup__input_add_source" placeholder="Ссылка на картинку">
-            <button class="popup__button-add" type="submit">Создать</button>
-        </form>
-        <template class="template-gallery">
-            <li class="gallery__card">
-                <div class="gallery__figure">
-                    <button class="gallery__trash-can-button"></button>
-                    <img class="gallery__image" src="" alt="">
-                    <div class="gallery__container">
-                        <h2 class="gallery__card-name">
-                        
-                        </h2>
-                        <button class="gallery__like-button" type="button"></button>
-                    </div>
-                </div>
-            </li>
-        </template>
+      <form class="popup__form popup__form_add" name="add-form" novalidate>
+        <button
+          class="popup__button-close popup__button-close_add"
+          type="reset"
+        ></button>
+        <h3 class="popup__text popup__text_add">Новое место</h3>
+        <input
+          type="text"
+          required
+          name="mesto-input"
+          class="popup__input popup__input_add popup__input_add_name"
+          placeholder="Название"
+          minlength='2';
+          maxlength='30';
+        />
+        <span></span>
+        <input
+          type="url"
+          required
+          name="url-input"
+          class="popup__input popup__input_add popup__input_add_source"
+          placeholder="Ссылка на картинку"
+        />
+        <span></span>
+        <button class="popup__button-add" type="submit">Создать</button>
+      </form>
+      <template class="template-gallery">
+        <li class="gallery__card">
+          <div class="gallery__figure">
+            <button class="gallery__trash-can-button"></button>
+            <img class="gallery__image" src="" alt="" />
+            <div class="gallery__container">
+              <h2 class="gallery__card-name"></h2>
+              <button class="gallery__like-button" type="button"></button>
+            </div>
+          </div>
+        </li>
+      </template>
     </section>
     <script src="./scripts/initialCards.js" defer></script>
     <script src="./scripts/index.js" defer></script>
-</body>
-
+  </body>
 </html>
