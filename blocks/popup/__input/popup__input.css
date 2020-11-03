@@ -10,6 +10,3 @@
     color: #000000;
     padding-bottom: 7px;
 }
-.popup__input:invalid{
-    border-bottom: 1px solid #FF0000;
-}
