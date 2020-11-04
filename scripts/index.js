@@ -1,4 +1,4 @@
-const popupForms = Array.from(document.querySelectorAll(".popup"));
+const popups = Array.from(document.querySelectorAll(".popup"));
 const editForm = document.querySelector(".popup_edit");
 const openEditFormButton = document.querySelector(".profile__edit-button");
 const closeEditFormButton = editForm.querySelector(".popup__button-close");
@@ -38,7 +38,6 @@ openEditFormButton.addEventListener("click", () => {
 });
 
 editForm.addEventListener("submit", (event) => {
-  event.preventDefault();
   saveEditForm();
 });
 
@@ -56,7 +55,7 @@ function openAddForm() {
 
 function submitAddForm(name, link) {
   const card = createCard(name, link);
-  cardsContainer.prepend(card);
+  cardsContainer.append(card);
   closePopup(addForm);
 }
 
@@ -100,7 +99,6 @@ openAddFormButton.addEventListener("click", () => {
 });
 
 addForm.addEventListener("submit", (event) => {
-  event.preventDefault();
   submitAddForm(mestoInput.value, urlInput.value);
 });
 
@@ -112,10 +110,10 @@ function renderCards() {
 renderCards();
 /*=================FullSize=====================*/
 function showFullSize(name, link) {
-  openPopup(fullSizeImage);
   imageName.textContent = name;
   imageSource.src = link;
   imageSource.alt = name;
+  openPopup(fullSizeImage);
 }
 
 closeFullSizeButton.addEventListener("click", () => {
@@ -135,7 +133,6 @@ function closePopup(popup) {
 
 function closePopupOnEscape(evt) {
   if (evt.key === "Escape") {
-    document.querySelector(".popup_is-opened");
     closePopup(document.querySelector(".popup_is-opened"));
   }
 }
@@ -147,6 +144,6 @@ const clickOnLayout = (evt) => {
   closePopup(evt.currentTarget);
 };
 
-popupForms.forEach((form) => {
+popups.forEach((form) => {
   form.addEventListener("click", clickOnLayout);
 });

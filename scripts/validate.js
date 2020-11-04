@@ -10,7 +10,7 @@ function hideError(elementsForValidation, formElement, input) {
 }
 
 function checkInputValidity(elementsForValidation, formElement, input) {
-  if (input.checkInputValidity) {
+  if (input.checkValidity()) {
     hideError(elementsForValidation, formElement, input);
   } else {
     showError(elementsForValidation, formElement, input);
@@ -55,7 +55,7 @@ function enableValidation(enableValidationElements) {
   });
 }
 
-enableValidationElements = {
+const enableValidationElements = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
   submitButtonSelector: ".popup__button",
