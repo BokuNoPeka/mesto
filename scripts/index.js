@@ -55,7 +55,7 @@ function openAddForm() {
 
 function submitAddForm(name, link) {
   const card = createCard(name, link);
-  cardsContainer.append(card);
+  cardsContainer.prepend(card);
   closePopup(addForm);
 }
 
@@ -102,9 +102,14 @@ addForm.addEventListener("submit", (event) => {
   submitAddForm(mestoInput.value, urlInput.value);
 });
 
+function createRenderCards(name, link) {
+  const card = createCard(name, link);
+  cardsContainer.append(card);
+}
+
 function renderCards() {
   initialCards.forEach((item) => {
-    submitAddForm(item.name, item.link);
+    createRenderCards(item.name, item.link);
   });
 }
 renderCards();
