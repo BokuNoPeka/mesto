@@ -8,8 +8,8 @@ export default class Card {
 
   _likeToggle = () => {
     this._content
-      .querySelector(".gallery__like-button")
-      .classList.toggle("gallery__like-button_active");
+      .querySelector(".card__like-button")
+      .classList.toggle("card__like-button_active");
   };
 
   _deleteCard = () => {
@@ -19,13 +19,13 @@ export default class Card {
 
   _setEventListeners() {
     this._content
-      .querySelector(".gallery__like-button")
+      .querySelector(".card__like-button")
       .addEventListener("click", () => this._likeToggle());
     this._content
-      .querySelector(".gallery__trash-can-button")
+      .querySelector(".card__trash-can-button")
       .addEventListener("click", () => this._deleteCard());
     this._content
-      .querySelector(".gallery__image")
+      .querySelector(".card__image")
       .addEventListener("click", () => {
         _showFullSize(this._name, this._link);
       });
@@ -33,12 +33,12 @@ export default class Card {
 
   render() {
     this._content = this._template
-      .querySelector(".gallery__card")
+      .querySelector(".card")
       .cloneNode(true);
-    const _image = this._content.querySelector(".gallery__image");
+    const _image = this._content.querySelector(".card__image");
     _image.setAttribute("alt", this._name);
     _image.setAttribute("src", this._link);
-    this._content.querySelector(".gallery__card-name").textContent = this._name;
+    this._content.querySelector(".card__card-name").textContent = this._name;
 
     this._setEventListeners();
     return this._content;

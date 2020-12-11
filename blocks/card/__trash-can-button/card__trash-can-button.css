@@ -1,4 +1,4 @@
-.gallery__trash-can-button {
+.card__trash-can-button {
     position: absolute;
     top: 18px;
     right: 15px;
@@ -15,6 +15,6 @@
     transition: opacity .3s ease;
 }
 
-.gallery__trash-can-button:hover {
+.card_trash-can-button:hover {
     opacity: 0.6;
 }
