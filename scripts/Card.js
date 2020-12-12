@@ -1,9 +1,11 @@
-import { _showFullSize } from "./index.js";
+import { showFullSize } from "./index.js";
 export default class Card {
-  constructor(name, link) {
+  constructor(name, link, template) {
     this._name = name;
     this._link = link;
-    this._template = document.querySelector(".template-gallery").content;
+    this._template = template;
+    this._content = this._template.querySelector(".card").cloneNode(true);
+    this._image = this._content.querySelector(".card__image");
   }
 
   _likeToggle = () => {
@@ -24,24 +26,17 @@ export default class Card {
     this._content
       .querySelector(".card__trash-can-button")
       .addEventListener("click", () => this._deleteCard());
-    this._content
-      .querySelector(".card__image")
-      .addEventListener("click", () => {
-        _showFullSize(this._name, this._link);
-      });
+    this._image.addEventListener("click", () => {
+      showFullSize(this._name, this._link);
+    });
   }
 
-  render() {
-    this._content = this._template
-      .querySelector(".card")
-      .cloneNode(true);
-    const _image = this._content.querySelector(".card__image");
-    _image.setAttribute("alt", this._name);
-    _image.setAttribute("src", this._link);
+  generateCard() {
+    this._image.setAttribute("alt", this._name);
+    this._image.setAttribute("src", this._link);
     this._content.querySelector(".card__card-name").textContent = this._name;
 
     this._setEventListeners();
     return this._content;
   }
 }
-

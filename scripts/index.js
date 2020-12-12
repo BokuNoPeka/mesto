@@ -1,5 +1,6 @@
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js"
+const templateSelector = document.querySelector(".template-gallery").content;
 const popups = Array.from(document.querySelectorAll(".popup"));
 const editForm = document.querySelector(".popup_edit");
 const openEditFormButton = document.querySelector(".profile__edit-button");
@@ -48,8 +49,7 @@ openEditFormButton.addEventListener("click", () => {
   openEditForm(editForm);
 });
 
-editForm.addEventListener("submit", (event) => {
-  event.preventDefault();
+editForm.addEventListener("submit", () => {
   saveEditForm();
 });
 
@@ -58,6 +58,11 @@ closeEditFormButton.addEventListener("click", () => {
 });
 
 /*=================PopupAdd=====================*/
+function createCard (name, link) {
+  const newCard = new Card(name, link, templateSelector);
+  const element = newCard.generateCard();
+  return element;
+}
 function openAddForm() {
   mestoInput.value = "";
   urlInput.value = "";
@@ -65,9 +70,8 @@ function openAddForm() {
   openPopup(addForm);
 }
 
-function submitAddForm(name, link) {
-  const newCard = new Card(name, link);
-  const element = newCard.render();
+function prependCard(name, link) {
+  const element = createCard (name, link)
   cardsContainer.prepend(element);
   closePopup(addForm);
 }
@@ -81,20 +85,18 @@ openAddFormButton.addEventListener("click", () => {
   openAddForm();
 });
 
-addForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  submitAddForm(mestoInput.value, urlInput.value);
+addForm.addEventListener("submit", () => {
+  prependCard(mestoInput.value, urlInput.value);
 });
 
-function createRenderCards(name, link) {
-  const newCard = new Card(name, link);
-  const element = newCard.render();
+function appendCard(name, link) {
+  const element = createCard (name, link)
   cardsContainer.append(element);
 }
 
 function renderCards() {
   initialCards.forEach((item) => {
-    createRenderCards(item.name, item.link);
+    appendCard(item.name, item.link);
   });
 }
 
@@ -103,7 +105,7 @@ renderCards();
 
 /*=================FullSize=====================*/
 
-export function _showFullSize(name, link) {
+export function showFullSize(name, link) {
   imageName.textContent = name;
   imageSource.src = link;
   imageSource.alt = name;
