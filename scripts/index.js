@@ -1,5 +1,7 @@
 import Card from "./Card.js";
-import FormValidator from "./FormValidator.js"
+import FormValidator from "./FormValidator.js";
+import Section from "./Section.js";
+
 const templateSelector = document.querySelector(".template-gallery").content;
 const popups = Array.from(document.querySelectorAll(".popup"));
 const editForm = document.querySelector(".popup_edit");
@@ -9,7 +11,7 @@ const profileName = document.querySelector(".profile__name");
 const profileStatus = document.querySelector(".profile__status");
 const nameInput = editForm.querySelector(".popup__input_edit_name");
 const statusInput = editForm.querySelector(".popup__input_edit_status");
-const cardsContainer = document.querySelector(".gallery__cards");
+const cardsContainer = ".gallery__cards";
 const addForm = document.querySelector(".popup_add");
 const openAddFormButton = document.querySelector(".profile__add-button");
 const closeAddFormButton = addForm.querySelector(".popup__button-close_add");
@@ -58,24 +60,13 @@ closeEditFormButton.addEventListener("click", () => {
 });
 
 /*=================PopupAdd=====================*/
-function createCard (name, link) {
-  const newCard = new Card(name, link, templateSelector);
-  const element = newCard.generateCard();
-  return element;
-}
+
 function openAddForm() {
   mestoInput.value = "";
   urlInput.value = "";
 
   openPopup(addForm);
 }
-
-function prependCard(name, link) {
-  const element = createCard (name, link)
-  cardsContainer.prepend(element);
-  closePopup(addForm);
-}
-
 
 closeAddFormButton.addEventListener("click", () => {
   closePopup(addForm);
@@ -89,18 +80,14 @@ addForm.addEventListener("submit", () => {
   prependCard(mestoInput.value, urlInput.value);
 });
 
-function appendCard(name, link) {
-  const element = createCard (name, link)
-  cardsContainer.append(element);
-}
+const getCards = new Section({ items: initialCards , renderer: (item)=>{
+  const newCard = new Card({data: item}, templateSelector)
+  const element = newCard.generateCard();
 
-function renderCards() {
-  initialCards.forEach((item) => {
-    appendCard(item.name, item.link);
-  });
-}
+  getCards.addItem(element, false);
+} }, cardsContainer);
 
-renderCards();
+getCards.renderItems();
 
 
 /*=================FullSize=====================*/
