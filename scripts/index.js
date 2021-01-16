@@ -1,6 +1,7 @@
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
 import Section from "./Section.js";
+import Popup from "./Popup.js";
 
 const templateSelector = document.querySelector(".template-gallery").content;
 const popups = Array.from(document.querySelectorAll(".popup"));
@@ -55,9 +56,6 @@ editForm.addEventListener("submit", () => {
   saveEditForm();
 });
 
-closeEditFormButton.addEventListener("click", () => {
-  closePopup(editForm);
-});
 
 /*=================PopupAdd=====================*/
 
@@ -67,10 +65,6 @@ function openAddForm() {
 
   openPopup(addForm);
 }
-
-closeAddFormButton.addEventListener("click", () => {
-  closePopup(addForm);
-});
 
 openAddFormButton.addEventListener("click", () => {
   openAddForm();
@@ -104,21 +98,6 @@ closeFullSizeButton.addEventListener("click", () => {
 });
 
 /*==============================CommonFunctions===========================*/
-function openPopup(popup) {
-  popup.classList.add("popup_is-opened");
-  document.addEventListener("keydown", closePopupOnEscape);
-}
-
-function closePopup(popup) {
-  popup.classList.remove("popup_is-opened");
-  document.removeEventListener("keydown", closePopupOnEscape);
-}
-
-function closePopupOnEscape(evt) {
-  if (evt.key === "Escape") {
-    closePopup(document.querySelector(".popup_is-opened"));
-  }
-}
 
 const clickOnLayout = (evt) => {
   if (evt.target !== evt.currentTarget) {
