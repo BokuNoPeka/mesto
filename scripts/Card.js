@@ -1,8 +1,8 @@
 import { showFullSize } from "./index.js";
 export default class Card {
-  constructor({ data }, template) {
-    this._name = data.name;
-    this._link = data.link;
+  constructor(name, link, template) {
+    this._name = name;
+    this._link = link;
     this._template = template;
     this._content = this._template.querySelector(".card").cloneNode(true);
     this._image = this._content.querySelector(".card__image");

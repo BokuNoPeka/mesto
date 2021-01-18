@@ -2,6 +2,8 @@ import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
 import Section from "./Section.js";
 import Popup from "./Popup.js";
+import PopupWithForm from "./PopupWithForm.js";
+import PopupWithImage from "./PopupWithImage.js";
 
 const templateSelector = document.querySelector(".template-gallery").content;
 const popups = Array.from(document.querySelectorAll(".popup"));
@@ -12,7 +14,7 @@ const profileName = document.querySelector(".profile__name");
 const profileStatus = document.querySelector(".profile__status");
 const nameInput = editForm.querySelector(".popup__input_edit_name");
 const statusInput = editForm.querySelector(".popup__input_edit_status");
-const cardsContainer = ".gallery__cards";
+const cardsContainer = document.querySelector(".gallery__cards");
 const addForm = document.querySelector(".popup_add");
 const openAddFormButton = document.querySelector(".profile__add-button");
 const closeAddFormButton = addForm.querySelector(".popup__button-close_add");
@@ -24,6 +26,7 @@ const imageSource = fullSizeImage.querySelector(".popup__image");
 const closeFullSizeButton = fullSizeImage.querySelector(
   ".popup__button-close_full-size"
 );
+
 const formEditSelector = ".popup__form_edit";
 const formAddSelector = ".popup__form_add";
 const validationSettings = {
@@ -34,48 +37,25 @@ const validationSettings = {
   inputErrorClass: "popup__input_state_invalid",
   errorClass: "error",
 };
+const forms = document.querySelectorAll(validationSettings.formSelector);
 
-/*=================PopupEdit=====================*/
-function openEditForm() {
-  nameInput.value = profileName.textContent;
-  statusInput.value = profileStatus.textContent;
-  openPopup(editForm);
-}
 
-function saveEditForm() {
-  profileName.textContent = nameInput.value;
-  profileStatus.textContent = statusInput.value;
-  closePopup(editForm);
-}
+const newPopup = new PopupWithForm({formSelector: formAddSelector,
+  popupSelector: '.popup_add'}, (inputData)=>{
+    const newcard = new Card(inputData['mesto-input'], inputData['url-input'], templateSelector);  
+    cardsContainer.prepend(newcard.generateCard()); 
+    newPopup.closePopup();
+  });
 
-openEditFormButton.addEventListener("click", () => {
-  openEditForm(editForm);
-});
-
-editForm.addEventListener("submit", () => {
-  saveEditForm();
+  newPopup.setEventListeners();
+  openAddFormButton.addEventListener('click', ()=>{
+    newPopup.openPopup();
 });
 
 
-/*=================PopupAdd=====================*/
-
-function openAddForm() {
-  mestoInput.value = "";
-  urlInput.value = "";
-
-  openPopup(addForm);
-}
-
-openAddFormButton.addEventListener("click", () => {
-  openAddForm();
-});
-
-addForm.addEventListener("submit", () => {
-  prependCard(mestoInput.value, urlInput.value);
-});
 
 const getCards = new Section({ items: initialCards , renderer: (item)=>{
-  const newCard = new Card({data: item}, templateSelector)
+  const newCard = new Card(item.name, item.link, templateSelector)
   const element = newCard.generateCard();
 
   getCards.addItem(element, false);
