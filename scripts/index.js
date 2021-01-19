@@ -27,7 +27,6 @@ const imageSource = fullSizeImage.querySelector(".popup__image");
 const closeFullSizeButton = fullSizeImage.querySelector(
   ".popup__button-close_full-size"
 );
-
 const formEditSelector = ".popup__form_edit";
 const formAddSelector = ".popup__form_add";
 const validationSettings = {
@@ -79,11 +78,17 @@ openAddFormButton.addEventListener("click", () => {
   newPopupAdd.openPopup();
 });
 
+const imagePopup = new PopupWithImage('.popup_full-size');
+imagePopup.setEventListeners();
+const handleCardClick = (name, link)=>{
+  imagePopup.openPopup(name, link);
+};
+
 const getCards = new Section(
   {
     items: initialCards,
     renderer: (item) => {
-      const newCard = new Card(item.name, item.link, templateSelector);
+      const newCard = new Card(item.name, item.link, templateSelector, handleCardClick);
       const element = newCard.generateCard();
 
       getCards.addItem(element, false);
@@ -94,18 +99,7 @@ const getCards = new Section(
 
 getCards.renderItems();
 
-/*=================FullSize=====================*/
 
-export function showFullSize(name, link) {
-  imageName.textContent = name;
-  imageSource.src = link;
-  imageSource.alt = name;
-  openPopup(fullSizeImage);
-}
-
-closeFullSizeButton.addEventListener("click", () => {
-  closePopup(fullSizeImage);
-});
 
 /*==============================CommonFunctions===========================*/
 

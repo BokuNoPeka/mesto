@@ -1,11 +1,12 @@
-import { showFullSize } from "./index.js";
+
 export default class Card {
-  constructor(name, link, template) {
+  constructor(name, link, template, handleCardClick) {
     this._name = name;
     this._link = link;
     this._template = template;
     this._content = this._template.querySelector(".card").cloneNode(true);
     this._image = this._content.querySelector(".card__image");
+    this._handleCardClick = handleCardClick;
   }
 
   _likeToggle = () => {
@@ -27,7 +28,7 @@ export default class Card {
       .querySelector(".card__trash-can-button")
       .addEventListener("click", () => this._deleteCard());
     this._image.addEventListener("click", () => {
-      showFullSize(this._name, this._link);
+      this._handleCardClick(this._name, this._link);
     });
   }
 
