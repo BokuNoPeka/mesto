@@ -4,6 +4,7 @@ import Section from "./Section.js";
 import Popup from "./Popup.js";
 import PopupWithForm from "./PopupWithForm.js";
 import PopupWithImage from "./PopupWithImage.js";
+import UserInfo from "./UserInfo.js";
 
 const templateSelector = document.querySelector(".template-gallery").content;
 const popups = Array.from(document.querySelectorAll(".popup"));
@@ -37,32 +38,61 @@ const validationSettings = {
   inputErrorClass: "popup__input_state_invalid",
   errorClass: "error",
 };
-const forms = document.querySelectorAll(validationSettings.formSelector);
 
-
-const newPopup = new PopupWithForm({formSelector: formAddSelector,
-  popupSelector: '.popup_add'}, (inputData)=>{
-    const newcard = new Card(inputData['mesto-input'], inputData['url-input'], templateSelector);  
-    cardsContainer.prepend(newcard.generateCard()); 
-    newPopup.closePopup();
-  });
-
-  newPopup.setEventListeners();
-  openAddFormButton.addEventListener('click', ()=>{
-    newPopup.openPopup();
+const profileInfo = new UserInfo({
+  name: '.profile__name',
+  status: '.profile__status',
 });
 
+const showEditPopup = new PopupWithForm({
+  formSelector: formEditSelector,
+  popupSelector: '.popup_edit',
+},(data) => {
+  profileInfo.setUserInfo(data);
+});
+
+openEditFormButton.addEventListener('click', ()=>{
+  nameInput.value = profileInfo.getUserInfo().name;
+  statusInput.value = profileInfo.getUserInfo().status;
+  showEditPopup.openPopup();
+});
+
+showEditPopup.setEventListeners();
 
 
-const getCards = new Section({ items: initialCards , renderer: (item)=>{
-  const newCard = new Card(item.name, item.link, templateSelector)
-  const element = newCard.generateCard();
 
-  getCards.addItem(element, false);
-} }, cardsContainer);
+const newPopupAdd = new PopupWithForm(
+  { formSelector: formAddSelector, popupSelector: ".popup_add" },
+  (inputData) => {
+    const newcard = new Card(
+      inputData["mesto-input"],
+      inputData["url-input"],
+      templateSelector
+    );
+    cardsContainer.prepend(newcard.generateCard());
+    newPopupAdd.closePopup();
+  }
+);
+
+newPopupAdd.setEventListeners();
+openAddFormButton.addEventListener("click", () => {
+  newPopupAdd.openPopup();
+});
+
+const getCards = new Section(
+  {
+    items: initialCards,
+    renderer: (item) => {
+      const newCard = new Card(item.name, item.link, templateSelector);
+      const element = newCard.generateCard();
+
+      getCards.addItem(element, false);
+    },
+  },
+  cardsContainer
+);
 
 getCards.renderItems();
-
 
 /*=================FullSize=====================*/
 
@@ -71,7 +101,7 @@ export function showFullSize(name, link) {
   imageSource.src = link;
   imageSource.alt = name;
   openPopup(fullSizeImage);
-};
+}
 
 closeFullSizeButton.addEventListener("click", () => {
   closePopup(fullSizeImage);
@@ -94,7 +124,9 @@ const formEditValidator = new FormValidator(
   validationSettings,
   formEditSelector
 );
-const formAddValidator = new FormValidator(validationSettings, formAddSelector);
+const formAddValidator = new FormValidator(
+  validationSettings,
+  formAddSelector);
 
 formEditValidator.enableValidation();
 formAddValidator.enableValidation();
