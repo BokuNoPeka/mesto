@@ -10,13 +10,10 @@ const templateSelector = document.querySelector(".template-gallery").content;
 const popups = Array.from(document.querySelectorAll(".popup"));
 const editForm = document.querySelector(".popup_edit");
 const openEditFormButton = document.querySelector(".profile__edit-button");
-
 const nameInput = editForm.querySelector(".popup__input_edit_name");
 const statusInput = editForm.querySelector(".popup__input_edit_status");
 const cardsContainer = document.querySelector(".gallery__cards");
-
 const openAddFormButton = document.querySelector(".profile__add-button");
-
 const formEditSelector = ".popup__form_edit";
 const formAddSelector = ".popup__form_add";
 const validationSettings = {
@@ -89,20 +86,6 @@ const getCards = new Section(
 
 getCards.renderItems();
 
-
-
-/*==============================CommonFunctions===========================*/
-
-const clickOnLayout = (evt) => {
-  if (evt.target !== evt.currentTarget) {
-    return;
-  }
-  closePopup(evt.currentTarget);
-};
-
-popups.forEach((form) => {
-  form.addEventListener("click", clickOnLayout);
-});
 /*==============================Validation===========================*/
 const formEditValidator = new FormValidator(
   validationSettings,
