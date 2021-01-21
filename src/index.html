@@ -7,7 +7,6 @@
       name="Description"
       content="Автор: Колдунов Артём, Проектная работа: Место"
     />
-    <link rel="stylesheet" href="./pages/index.css" />
     <title>Mesto</title>
   </head>
 
@@ -15,7 +14,7 @@
     <header class="header">
       <img
         class="header__logo"
-        src="./images/Header-logo.svg"
+        src="<%=require('./images/Header-logo.svg')%>"
         alt="Mesto russia"
       />
     </header>
@@ -24,7 +23,7 @@
         <div class="profile__info">
           <img
             class="profile__avatar"
-            src="./images/Jack-ivan-Kusto.jpg"
+            src="<%=require('./images/Jack-ivan-Kusto.jpg')%>"
             alt="Жак кусто во всей красе"
           />
           <div class="profile__container-info">
@@ -131,9 +130,5 @@
         </li>
       </template>
     </section>
-    <script src="./scripts/initialCards.js" defer></script>
-    <script src="./scripts/index.js" type="module"></script>
-    <script src="./scripts/Card.js" type="module"></script>
-    <script src="./scripts/FormValidator.js" type="module"></script>
   </body>
 </html>

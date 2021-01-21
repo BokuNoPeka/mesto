@@ -1,29 +1,23 @@
-import Card from "./Card.js";
-import FormValidator from "./FormValidator.js";
-import Section from "./Section.js";
-import Popup from "./Popup.js";
-import PopupWithForm from "./PopupWithForm.js";
-import PopupWithImage from "./PopupWithImage.js";
-import UserInfo from "./UserInfo.js";
+import "./index.css";
+import Card from "../scripts/Card.js";
+import FormValidator from "../scripts/FormValidator.js";
+import Section from "../scripts/Section.js";
+import PopupWithForm from "../scripts/PopupWithForm.js";
+import PopupWithImage from "../scripts/PopupWithImage.js";
+import UserInfo from "../scripts/UserInfo.js";
+import {
+  templateSelector,
+  openAddFormButton,
+  nameInput,
+  openEditFormButton,
+  statusInput,
+  cardsContainer,
+  formEditSelector,
+  formAddSelector,
+  validationSettings,
+  initialCards
+} from "../utiles/constants.js";
 
-const templateSelector = document.querySelector(".template-gallery").content;
-const popups = Array.from(document.querySelectorAll(".popup"));
-const editForm = document.querySelector(".popup_edit");
-const openEditFormButton = document.querySelector(".profile__edit-button");
-const nameInput = editForm.querySelector(".popup__input_edit_name");
-const statusInput = editForm.querySelector(".popup__input_edit_status");
-const cardsContainer = document.querySelector(".gallery__cards");
-const openAddFormButton = document.querySelector(".profile__add-button");
-const formEditSelector = ".popup__form_edit";
-const formAddSelector = ".popup__form_add";
-const validationSettings = {
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button-invalid",
-  inputErrorClass: "popup__input_state_invalid",
-  errorClass: "error",
-};
 
 const profileInfo = new UserInfo({
   name: '.profile__name',
@@ -97,3 +91,4 @@ const formAddValidator = new FormValidator(
 
 formEditValidator.enableValidation();
 formAddValidator.enableValidation();
+
