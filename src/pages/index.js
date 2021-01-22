@@ -15,23 +15,26 @@ import {
   formEditSelector,
   formAddSelector,
   validationSettings,
-  initialCards
+  initialCards,
 } from "../utiles/constants.js";
 
-
 const profileInfo = new UserInfo({
-  name: '.profile__name',
-  status: '.profile__status',
+  name: ".profile__name",
+  status: ".profile__status",
 });
 
-const showEditPopup = new PopupWithForm({
-  formSelector: formEditSelector,
-  popupSelector: '.popup_edit',
-},(data) => {
-  profileInfo.setUserInfo(data);
-});
+const showEditPopup = new PopupWithForm(
+  {
+    formSelector: formEditSelector,
+    popupSelector: ".popup_edit",
+  },
+  (data => {
+    profileInfo.setUserInfo(data);
+  })
+);
 
-openEditFormButton.addEventListener('click', ()=>{
+openEditFormButton.addEventListener("click", () => {
+  formEditValidator.resetErrors();
   nameInput.value = profileInfo.getUserInfo().name;
   statusInput.value = profileInfo.getUserInfo().status;
   showEditPopup.openPopup();
@@ -39,29 +42,34 @@ openEditFormButton.addEventListener('click', ()=>{
 
 showEditPopup.setEventListeners();
 
-
-
 const newPopupAdd = new PopupWithForm(
   { formSelector: formAddSelector, popupSelector: ".popup_add" },
   (inputData) => {
-    const newcard = new Card(
+    const newCard = new Card(
       inputData["mesto-input"],
       inputData["url-input"],
-      templateSelector
+      templateSelector,
+      handleCardClick
     );
-    cardsContainer.prepend(newcard.generateCard());
+    addItems(newCard.generateCard(), true);
     newPopupAdd.closePopup();
   }
 );
 
 newPopupAdd.setEventListeners();
 openAddFormButton.addEventListener("click", () => {
+  formAddValidator.disableSubmitButton();
+  formAddValidator.resetErrors();
   newPopupAdd.openPopup();
 });
 
-const imagePopup = new PopupWithImage('.popup_full-size');
+const imagePopup = new PopupWithImage({
+  popupSelector: ".popup_full-size",
+  imageSelector: ".popup__image",
+  imageFigurecaption: ".popup__figurecaption",
+});
 imagePopup.setEventListeners();
-const handleCardClick = (name, link)=>{
+const handleCardClick = (name, link) => {
   imagePopup.openPopup(name, link);
 };
 
@@ -69,26 +77,32 @@ const getCards = new Section(
   {
     items: initialCards,
     renderer: (item) => {
-      const newCard = new Card(item.name, item.link, templateSelector, handleCardClick);
-      const element = newCard.generateCard();
-
-      getCards.addItem(element, false);
+      const newCard = new Card(
+        item.name,
+        item.link,
+        templateSelector,
+        handleCardClick
+      );
+      addItems(newCard.generateCard(), false);
     },
   },
   cardsContainer
 );
 
+function addItems(element, position){
+  getCards.addItem(element, position)
+}
+
 getCards.renderItems();
 
-/*==============================Validation===========================*/
+
 const formEditValidator = new FormValidator(
   validationSettings,
   formEditSelector
 );
-const formAddValidator = new FormValidator(
-  validationSettings,
-  formAddSelector);
+const formAddValidator = new FormValidator(validationSettings, formAddSelector);
 
 formEditValidator.enableValidation();
 formAddValidator.enableValidation();
+
 

@@ -5,7 +5,6 @@ export default class Card {
     this._link = link;
     this._template = template;
     this._content = this._template.querySelector(".card").cloneNode(true);
-    this._image = this._content.querySelector(".card__image");
     this._handleCardClick = handleCardClick;
   }
 
@@ -33,8 +32,9 @@ export default class Card {
   }
 
   generateCard() {
-    this._image.setAttribute("alt", this._name);
-    this._image.setAttribute("src", this._link);
+    this._image = this._content.querySelector(".card__image");
+    this._image.src = this._link;
+    this._image.alt = this._name;
     this._content.querySelector(".card__card-name").textContent = this._name;
 
     this._setEventListeners();
